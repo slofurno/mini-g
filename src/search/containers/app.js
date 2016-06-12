@@ -14,8 +14,7 @@ class Search extends Component {
     const { searchFacts, display } = this.props
     return (
       <div className='mini__app'>
-        <input type='text' ref='search' onKeyDown={ e => console.log({...e}) }/>
-        <input type='button' onClick={() => searchFacts(this.refs.search.value)} value='fetch'/>
+        <input className='mini__input' type='text' ref='search' onKeyDown={ e => console.log({...e}) } onChange={(e) => searchFacts(e.target.value)}/>
       </div>
     )
   }
