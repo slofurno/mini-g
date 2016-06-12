@@ -1,0 +1,41 @@
+function sendMessage(message, fn) {
+  chrome.runtime.sendMessage(message, fn)
+}
+const keypress = (e) => {
+  e.preventDefault()
+  e.stopPropagation()
+  console.log("HEY", e)
+}
+//document.addEventListener("keypress", keypress, false)
+//document.addEventListener("keydown", keypress, false)
+//
+
+let el = document.createElement("div")
+let input = document.createElement("input")
+input.type="text"
+let button = document.createElement("input")
+button.type="button"
+
+const styles = {
+  position: "fixed",
+  backgroundColor: "cornflowerblue",
+  width: "300px",
+  height: "200px",
+  top: "10px",
+  left: "10px"
+}
+
+Object.keys(styles).forEach(k => {
+  el.style[k] = styles[k]
+})
+
+el.appendChild(input)
+el.appendChild(button)
+
+document.body.appendChild(el)
+
+button.onclick = e => {
+  sendMessage({query: "name"}, function(response) {
+      console.log(response)
+  })
+}
