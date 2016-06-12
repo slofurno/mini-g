@@ -1,0 +1,9 @@
+chrome.commands.onCommand.addListener(function(command) {
+  console.log('Command:', command);
+});
+
+chrome.runtime.onMessage.addListener((message, sender, fn) => {
+  console.log(message, sender, fn)
+  fn("here")
+})
+

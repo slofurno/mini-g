@@ -9,7 +9,11 @@ import rootReducer from 'reducers'
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 import App from './containers/app'
-store.dispatch(login())
+//store.dispatch(login())
+
+chrome.runtime.onMessage.addListener((message, sender, fn) => {
+  store.dispatch(message)
+})
 
 const rootDiv = document.createElement("div")
 const rootId = 'mini-g__root'

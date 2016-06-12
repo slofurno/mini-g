@@ -2,7 +2,8 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    search: './src/search'
+    search: './src/search',
+    background: './src/background'
   },
   output: {
     path: path.join(__dirname, 'public'),
